@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HITAHARA | Modern Canteen Experience</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Plus Jakarta Sans & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="/css/styles.css" />
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            display: ['Outfit', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace']
+          },
+          colors: {
+            brand: {
+              50: '#fff7ed',
+              100: '#ffedd5',
+              400: '#fb923c',
+              500: '#f97316',
+              600: '#ea580c',
+              700: '#c2410c',
+              900: '#7c2d12'
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-[#09090b] text-zinc-100 min-h-screen flex flex-col font-sans selection:bg-orange-500 selection:text-white">
+
+  <!-- ================= TOP HEADER NAVIGATION ================= -->
+  <header class="sticky top-0 z-40 bg-[#09090b]/80 backdrop-blur-xl border-b border-zinc-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <div class="flex items-center space-x-3 cursor-pointer" onclick="switchView('student')">
+        <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-orange-600 via-amber-500 to-yellow-400 flex items-center justify-center shadow-lg shadow-orange-500/20 ring-1 ring-white/20">
+          <i data-lucide="utensils" class="w-6 h-6 text-white"></i>
+        </div>
+        <div>
+          <div class="flex items-center space-x-2">
+            <span class="font-display font-extrabold text-2xl tracking-tight bg-gradient-to-r from-white via-zinc-100 to-zinc-300 bg-clip-text text-transparent">
+              HITA<span class="text-orange-500">HARA</span>
+            </span>
+            <span class="text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full bg-orange-500/10 text-orange-400 border border-orange-500/20">
+              Campus Canteen
+            </span>
+          </div>
+          <p class="text-xs text-zinc-400 flex items-center space-x-1.5 font-medium">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span>Kitchen Open • Fresh & Hygienic Meals</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- Center View Switcher Tabs -->
+      <nav class="hidden md:flex items-center p-1.5 rounded-2xl bg-zinc-900/90 border border-zinc-800 shadow-inner">
+        <button id="navStudentBtn" onclick="switchView('student')" class="view-tab-btn active-tab flex items-center space-x-2 px-5 py-2 rounded-xl text-sm font-semibold transition-all duration-200">
+          <i data-lucide="graduation-cap" class="w-4 h-4"></i>
+          <span>Student Menu</span>
+        </button>
+        <button id="navStaffBtn" onclick="requestStaffAccess()" class="view-tab-btn flex items-center space-x-2 px-5 py-2 rounded-xl text-sm font-semibold text-zinc-400 hover:text-zinc-200 transition-all duration-200">
+          <i data-lucide="lock" id="staffTabLockIcon" class="w-4 h-4 text-zinc-500"></i>
+          <span>Staff Portal</span>
+          <span id="staffQueueBadge" class="hidden ml-1 px-1.5 py-0.5 text-xs font-mono rounded-full bg-orange-500 text-white">0</span>
+        </button>
+      </nav>
+
+      <!-- Right Action Items -->
+      <div class="flex items-center space-x-3">
+        <!-- Live Order Status Bell / Tracker Trigger -->
+        <button id="orderTrackerBtn" onclick="openOrderTrackerModal()" title="View Order Status" class="relative p-2.5 rounded-xl bg-zinc-900 border border-zinc-800 text-zinc-300 hover:text-white hover:border-zinc-700 transition">
+          <i data-lucide="clock-3" class="w-5 h-5"></i>
+          <span id="trackerDot" class="hidden absolute top-2 right-2 w-2 h-2 rounded-full bg-orange-500 ring-2 ring-[#09090b]"></span>
+        </button>
+
+        <!-- Cart Button -->
+        <button onclick="toggleCartDrawer()" class="relative flex items-center space-x-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-orange-600 to-amber-600 text-white font-medium shadow-md shadow-orange-600/25 hover:from-orange-500 hover:to-amber-500 transition-all duration-200">
+          <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+          <span class="hidden sm:inline text-sm font-semibold">My Tray</span>
+          <span id="cartCountBadge" class="px-2 py-0.5 text-xs font-mono font-bold rounded-full bg-white/20">0</span>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile View Bar -->
+    <div class="md:hidden flex items-center justify-around py-2 border-t border-zinc-800/60 bg-zinc-900/60">
+      <button onclick="switchView('student')" class="mobile-tab-btn text-xs font-semibold py-1 px-3 text-orange-500">Student Menu</button>
+      <button onclick="requestStaffAccess()" class="mobile-tab-btn text-xs font-semibold py-1 px-3 text-zinc-400">Staff Portal (PIN)</button>
+    </div>
+  </header>
+
+  <!-- ================= MAIN CONTAINER ================= -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
+
+    <!-- -------------------------------------------------------------
+         VIEW 1: STUDENT / USER VIEW
+    -------------------------------------------------------------- -->
+    <section id="viewStudent" class="space-y-8 animate-fadeIn">
+      
+      <!-- Student Hero Banner -->
+      <div class="relative overflow-hidden rounded-3xl bg-gradient-to-r from-zinc-900 via-zinc-900/90 to-orange-950/40 border border-zinc-800/80 p-8 sm:p-10 shadow-2xl">
+        <div class="absolute -right-16 -top-16 w-80 h-80 bg-orange-600/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute right-8 bottom-0 hidden lg:block opacity-40 hover:opacity-60 transition duration-500">
+          <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=600&q=80" alt="Hitahara Dining" class="w-80 h-48 object-cover rounded-2xl shadow-2xl border border-white/10" />
+        </div>
+        
+        <div class="relative z-10 max-w-2xl space-y-4">
+          <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-400 text-xs font-semibold">
+            <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+            <span>Hitahara Campus Dining • Fresh & Quick Service</span>
+          </div>
+          <h1 class="font-display text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
+            Delicious Meals, <br/>
+            <span class="bg-gradient-to-r from-orange-400 to-amber-300 bg-clip-text text-transparent">Cooked Fresh Every Day.</span>
+          </h1>
+          <p class="text-zinc-400 text-sm sm:text-base leading-relaxed">
+            Order healthy, delicious meals directly from your phone. Pick up warm meals at the counter with zero wait time.
+          </p>
+
+          <!-- Quick Stats Pill -->
+          <div class="pt-2 flex flex-wrap items-center gap-4 text-xs font-medium text-zinc-300">
+            <div class="flex items-center space-x-1.5 px-3 py-1.5 rounded-xl bg-zinc-800/60 border border-zinc-700/50">
+              <i data-lucide="flame" class="w-4 h-4 text-orange-500"></i>
+              <span>Cooked Fresh to Order</span>
+            </div>
+            <div class="flex items-center space-x-1.5 px-3 py-1.5 rounded-xl bg-zinc-800/60 border border-zinc-700/50">
+              <i data-lucide="timer" class="w-4 h-4 text-amber-500"></i>
+              <span>Average Prep: 8 mins</span>
+            </div>
+            <div class="flex items-center space-x-1.5 px-3 py-1.5 rounded-xl bg-zinc-800/60 border border-zinc-700/50">
+              <i data-lucide="shield-check" class="w-4 h-4 text-emerald-500"></i>
+              <span>Student Subsidy Available</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Search, Categories & Dietary Filters -->
+      <div class="space-y-4">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+          
+          <!-- Category Pills -->
+          <div id="categoryFilterContainer" class="flex items-center space-x-2 overflow-x-auto pb-2 md:pb-0 scrollbar-none">
+            <button onclick="filterCategory('All')" class="cat-pill active px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition">
+              All Items
+            </button>
+            <button onclick="filterCategory('Burgers')" class="cat-pill px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold text-zinc-400 hover:text-white whitespace-nowrap transition">
+              🍔 Burgers
+            </button>
+            <button onclick="filterCategory('Pizza')" class="cat-pill px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold text-zinc-400 hover:text-white whitespace-nowrap transition">
+              🍕 Pizza
+            </button>
+            <button onclick="filterCategory('Main Course')" class="cat-pill px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold text-zinc-400 hover:text-white whitespace-nowrap transition">
+              🍛 Main Course
+            </button>
+            <button onclick="filterCategory('Fast Food')" class="cat-pill px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold text-zinc-400 hover:text-white whitespace-nowrap transition">
+              🍟 Fast Food
+            </button>
+            <button onclick="filterCategory('Desserts')" class="cat-pill px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold text-zinc-400 hover:text-white whitespace-nowrap transition">
+              🍰 Desserts
+            </button>
+            <button onclick="filterCategory('Beverages')" class="cat-pill px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold text-zinc-400 hover:text-white whitespace-nowrap transition">
+              ☕ Beverages
+            </button>
+          </div>
+
+          <!-- Search Input & Veg Toggle -->
+          <div class="flex items-center space-x-3">
+            <div class="relative flex-1 sm:w-64">
+              <i data-lucide="search" class="w-4 h-4 text-zinc-500 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
+              <input type="text" id="menuSearchInput" oninput="handleMenuSearch()" placeholder="Search dishes..." class="w-full pl-10 pr-4 py-2 rounded-xl bg-zinc-900 border border-zinc-800 text-sm text-zinc-200 placeholder-zinc-500 focus:outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500" />
+            </div>
+
+            <!-- Veg Only Toggle Button -->
+            <button id="vegOnlyToggle" onclick="toggleVegOnly()" class="flex items-center space-x-2 px-3 py-2 rounded-xl bg-zinc-900 border border-zinc-800 text-xs font-semibold text-zinc-300 hover:border-zinc-700 transition">
+              <span class="w-3 h-3 rounded-full border-2 border-emerald-500 flex items-center justify-center p-0.5">
+                <span id="vegDot" class="w-1.5 h-1.5 rounded-full bg-transparent"></span>
+              </span>
+              <span>Pure Veg</span>
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Food Menu Grid -->
+      <div id="foodGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <!-- Dynamically injected cards -->
+      </div>
+
+    </section>
+
+    <!-- -------------------------------------------------------------
+         VIEW 2: STAFF / KITCHEN VIEW (Protected by PIN)
+    -------------------------------------------------------------- -->
+    <section id="viewStaff" class="hidden space-y-8 animate-fadeIn">
+      
+      <!-- Staff Header Dashboard & Action Bar -->
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-2 border-b border-zinc-800/80">
+        <div>
+          <div class="flex items-center space-x-2.5">
+            <h2 class="font-display text-2xl sm:text-3xl font-bold text-white">Hitahara Kitchen Management</h2>
+            <span class="px-2.5 py-0.5 text-xs font-semibold rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+              Staff Authenticated
+            </span>
+          </div>
+          <p class="text-zinc-400 text-sm">Real-time order pipeline and menu stock control.</p>
+        </div>
+
+        <!-- Staff Operations Action Bar -->
+        <div class="flex items-center space-x-3">
+          <!-- Undo Button -->
+          <button onclick="triggerStackUndo()" class="group flex items-center space-x-2 px-4 py-2.5 rounded-xl bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 border border-amber-500/30 hover:border-amber-500/50 text-sm font-semibold transition-all shadow-sm">
+            <i data-lucide="rotate-ccw" class="w-4 h-4 group-hover:-rotate-45 transition-transform duration-300"></i>
+            <span>Undo Last Action</span>
+          </button>
+
+          <!-- Add Item Button -->
+          <button onclick="openAddDishModal()" class="flex items-center space-x-2 px-4 py-2.5 rounded-xl bg-orange-600 hover:bg-orange-500 text-white text-sm font-semibold transition shadow-md shadow-orange-600/20">
+            <i data-lucide="plus-circle" class="w-4 h-4"></i>
+            <span>Add New Dish</span>
+          </button>
+
+          <!-- Lock / Exit Staff Portal Button -->
+          <button onclick="lockStaffPortal()" title="Lock Staff Portal" class="p-2.5 rounded-xl bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white hover:border-zinc-700 transition">
+            <i data-lucide="lock" class="w-4 h-4"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- KPI Summary Cards -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+        <div class="p-5 rounded-2xl bg-zinc-900 border border-zinc-800 flex items-center justify-between">
+          <div>
+            <p class="text-xs font-medium text-zinc-400 uppercase tracking-wider">Active Orders</p>
+            <p id="kpiQueueCount" class="text-3xl font-display font-bold text-white mt-1">0</p>
+            <span class="text-[11px] text-orange-400">In Preparation Line</span>
+          </div>
+          <div class="w-12 h-12 rounded-xl bg-orange-500/10 flex items-center justify-center text-orange-400">
+            <i data-lucide="layers" class="w-6 h-6"></i>
+          </div>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-zinc-900 border border-zinc-800 flex items-center justify-between">
+          <div>
+            <p class="text-xs font-medium text-zinc-400 uppercase tracking-wider">Cooking</p>
+            <p id="kpiPreparingCount" class="text-3xl font-display font-bold text-amber-400 mt-1">0</p>
+            <span class="text-[11px] text-zinc-400">In Kitchen</span>
+          </div>
+          <div class="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-400">
+            <i data-lucide="flame" class="w-6 h-6"></i>
+          </div>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-zinc-900 border border-zinc-800 flex items-center justify-between">
+          <div>
+            <p class="text-xs font-medium text-zinc-400 uppercase tracking-wider">Ready at Counter</p>
+            <p id="kpiReadyCount" class="text-3xl font-display font-bold text-emerald-400 mt-1">0</p>
+            <span class="text-[11px] text-emerald-400">Call Ticket</span>
+          </div>
+          <div class="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400">
+            <i data-lucide="bell-ring" class="w-6 h-6"></i>
+          </div>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-zinc-900 border border-zinc-800 flex items-center justify-between">
+          <div>
+            <p class="text-xs font-medium text-zinc-400 uppercase tracking-wider">Menu Dishes</p>
+            <p id="kpiMenuItemsCount" class="text-3xl font-display font-bold text-blue-400 mt-1">0</p>
+            <span class="text-[11px] text-zinc-400">Available on Menu</span>
+          </div>
+          <div class="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-400">
+            <i data-lucide="book-open" class="w-6 h-6"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- Staff View Tabs -->
+      <div class="space-y-4">
+        <div class="flex items-center space-x-3 border-b border-zinc-800 pb-2">
+          <button onclick="switchStaffSubTab('queue')" id="staffSubTabQueue" class="staff-sub-tab active px-4 py-2 text-sm font-semibold rounded-xl transition">
+            🍽 Live Orders
+          </button>
+          <button onclick="switchStaffSubTab('inventory')" id="staffSubTabInv" class="staff-sub-tab px-4 py-2 text-sm font-semibold text-zinc-400 hover:text-white rounded-xl transition">
+            📋 Menu & Stock Inventory
+          </button>
+        </div>
+
+        <!-- Subtab 1: Orders Board -->
+        <div id="staffSectionQueue" class="space-y-4">
+          <div class="flex items-center justify-between text-xs text-zinc-400 px-1">
+            <p class="flex items-center space-x-1.5">
+              <span class="w-2 h-2 rounded-full bg-orange-500"></span>
+              <span>Sorted by arrival time (Oldest orders first)</span>
+            </p>
+            <span class="text-xs text-zinc-500">Auto-refreshes every 2s</span>
+          </div>
+
+          <!-- Queue Container -->
+          <div id="kitchenQueueContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            <!-- Kitchen order ticket cards injected dynamically -->
+          </div>
+        </div>
+
+        <!-- Subtab 2: Menu & Stock Inventory -->
+        <div id="staffSectionInventory" class="hidden space-y-4">
+          <div class="p-4 rounded-2xl bg-zinc-900 border border-zinc-800">
+            <h3 class="text-sm font-semibold text-white mb-2">Menu & Stock Inventory</h3>
+            <p class="text-xs text-zinc-400 mb-4">Monitor and update available portions for all items.</p>
+
+            <div class="overflow-x-auto">
+              <table class="w-full text-left text-sm text-zinc-300">
+                <thead class="text-xs uppercase bg-zinc-950 text-zinc-400 border-b border-zinc-800">
+                  <tr>
+                    <th class="py-3 px-4">Item #</th>
+                    <th class="py-3 px-4">Dish Details</th>
+                    <th class="py-3 px-4">Category</th>
+                    <th class="py-3 px-4">Price</th>
+                    <th class="py-3 px-4">Available Portions</th>
+                    <th class="py-3 px-4">Quick Adjust</th>
+                    <th class="py-3 px-4 text-right">Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="inventoryTableBody" class="divide-y divide-zinc-800/60 font-sans">
+                  <!-- Injected via JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- ================= STAFF PIN SECURITY MODAL ================= -->
+  <div id="staffPinModal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-md p-4">
+    <div id="staffPinCard" class="w-full max-w-sm bg-zinc-900 border border-zinc-800 rounded-3xl shadow-2xl overflow-hidden p-6 space-y-6 animate-scaleIn text-center">
+      
+      <!-- Lock Icon -->
+      <div class="w-16 h-16 rounded-2xl bg-orange-500/10 border border-orange-500/20 text-orange-400 flex items-center justify-center mx-auto shadow-inner">
+        <i data-lucide="shield-alert" class="w-8 h-8"></i>
+      </div>
+
+      <div class="space-y-1">
+        <h3 class="font-display font-bold text-xl text-white">Hitahara Staff Access</h3>
+        <p class="text-xs text-zinc-400">Please enter your 4-digit staff PIN to unlock</p>
+      </div>
+
+      <!-- PIN Input Display -->
+      <div class="flex justify-center items-center space-x-3 my-4">
+        <input type="password" id="staffPinInput" maxlength="4" autofocus placeholder="••••" class="w-48 text-center text-2xl font-mono tracking-[0.5em] px-4 py-3 rounded-2xl bg-zinc-950 border border-zinc-700 text-white placeholder-zinc-600 focus:outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-500/30 transition" />
+      </div>
+
+      <p id="pinErrorMessage" class="text-xs text-rose-400 font-medium hidden">
+        Incorrect PIN. Please try again.
+      </p>
+
+      <!-- Keypad -->
+      <div class="grid grid-cols-3 gap-2 max-w-[240px] mx-auto text-sm font-semibold">
+        <button onclick="pressPinDigit('1')" class="pin-key">1</button>
+        <button onclick="pressPinDigit('2')" class="pin-key">2</button>
+        <button onclick="pressPinDigit('3')" class="pin-key">3</button>
+        <button onclick="pressPinDigit('4')" class="pin-key">4</button>
+        <button onclick="pressPinDigit('5')" class="pin-key">5</button>
+        <button onclick="pressPinDigit('6')" class="pin-key">6</button>
+        <button onclick="pressPinDigit('7')" class="pin-key">7</button>
+        <button onclick="pressPinDigit('8')" class="pin-key">8</button>
+        <button onclick="pressPinDigit('9')" class="pin-key">9</button>
+        <button onclick="clearPinInput()" class="pin-key text-zinc-400 hover:text-white">Clear</button>
+        <button onclick="pressPinDigit('0')" class="pin-key">0</button>
+        <button onclick="deletePinDigit()" class="pin-key text-zinc-400 hover:text-white">⌫</button>
+      </div>
+
+      <div class="space-y-2 pt-2">
+        <button onclick="submitStaffPin()" class="w-full py-3 rounded-xl bg-orange-600 hover:bg-orange-500 text-white font-semibold text-sm transition shadow-md shadow-orange-600/30">
+          Unlock Staff Portal
+        </button>
+        <button onclick="closeStaffPinModal()" class="w-full py-2 text-xs font-semibold text-zinc-400 hover:text-zinc-200 transition">
+          Cancel & Return to Student Menu
+        </button>
+      </div>
+
+      <p class="text-[11px] text-zinc-500">Default Staff PIN: <span class="font-mono text-zinc-400">1234</span></p>
+
+    </div>
+  </div>
+
+  <!-- ================= SLIDE-OVER CART DRAWER ================= -->
+  <div id="cartDrawerBackdrop" onclick="toggleCartDrawer()" class="hidden fixed inset-0 z-50 bg-black/70 backdrop-blur-sm transition-opacity"></div>
+  <aside id="cartDrawer" class="fixed top-0 right-0 z-50 h-full w-full max-w-md bg-zinc-900 border-l border-zinc-800 shadow-2xl flex flex-col transform translate-x-full transition-transform duration-300 ease-in-out">
+    
+    <!-- Drawer Header -->
+    <div class="p-6 border-b border-zinc-800 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <div class="p-2 rounded-xl bg-orange-500/10 text-orange-400">
+          <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+        </div>
+        <div>
+          <h3 class="font-display font-bold text-lg text-white">Your Tray</h3>
+          <p class="text-xs text-zinc-400">Review items before checkout</p>
+        </div>
+      </div>
+      <button onclick="toggleCartDrawer()" class="p-2 rounded-xl text-zinc-400 hover:text-white hover:bg-zinc-800 transition">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+    </div>
+
+    <!-- Drawer Items List -->
+    <div id="cartItemsList" class="flex-1 overflow-y-auto p-6 space-y-4">
+      <!-- Injected via student-view.js -->
+    </div>
+
+    <!-- Drawer Checkout Form & Summary -->
+    <div class="p-6 border-t border-zinc-800 bg-zinc-950/60 space-y-4">
+      
+      <!-- Student Info Inputs -->
+      <div class="space-y-3">
+        <div class="grid grid-cols-2 gap-2">
+          <div>
+            <label class="block text-[11px] font-semibold text-zinc-400 uppercase tracking-wider mb-1">Student ID *</label>
+            <input type="text" id="cartStudentId" value="STU-2024-042" class="w-full px-3 py-1.5 rounded-lg bg-zinc-900 border border-zinc-800 text-xs text-white focus:outline-none focus:border-orange-500" />
+          </div>
+          <div>
+            <label class="block text-[11px] font-semibold text-zinc-400 uppercase tracking-wider mb-1">Student Name *</label>
+            <input type="text" id="cartStudentName" value="Jordan Hayes" class="w-full px-3 py-1.5 rounded-lg bg-zinc-900 border border-zinc-800 text-xs text-white focus:outline-none focus:border-orange-500" />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-2">
+          <div>
+            <label class="block text-[11px] font-semibold text-zinc-400 uppercase tracking-wider mb-1">Dining Mode</label>
+            <select id="cartPickupType" class="w-full px-3 py-1.5 rounded-lg bg-zinc-900 border border-zinc-800 text-xs text-white focus:outline-none focus:border-orange-500">
+              <option value="Dine-In">🍽 Dine-In (Table)</option>
+              <option value="Takeaway">🥡 Takeaway (Pack)</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-[11px] font-semibold text-zinc-400 uppercase tracking-wider mb-1">Payment</label>
+            <select id="cartPaymentMethod" class="w-full px-3 py-1.5 rounded-lg bg-zinc-900 border border-zinc-800 text-xs text-white focus:outline-none focus:border-orange-500">
+              <option value="Campus Card">💳 Campus Card</option>
+              <option value="UPI / QR">📱 UPI / QR Scan</option>
+              <option value="Cash at Counter">💵 Cash at Counter</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-[11px] font-semibold text-zinc-400 uppercase tracking-wider mb-1">Special Instructions</label>
+          <input type="text" id="cartSpecialNotes" placeholder="e.g. Less spicy, extra sauce" class="w-full px-3 py-1.5 rounded-lg bg-zinc-900 border border-zinc-800 text-xs text-white placeholder-zinc-500 focus:outline-none focus:border-orange-500" />
+        </div>
+      </div>
+
+      <!-- Price Breakdown -->
+      <div class="pt-2 border-t border-zinc-800/80 space-y-1.5 text-xs text-zinc-400">
+        <div class="flex justify-between">
+          <span>Subtotal</span>
+          <span id="cartSubtotal" class="font-mono text-zinc-200">₹0.00</span>
+        </div>
+        <div class="flex justify-between text-emerald-400">
+          <span>Campus Student Subsidy (-10%)</span>
+          <span id="cartDiscount" class="font-mono">-₹0.00</span>
+        </div>
+        <div class="flex justify-between font-display font-bold text-base text-white pt-2 border-t border-zinc-800">
+          <span>Total</span>
+          <span id="cartTotal" class="text-orange-400 font-mono text-lg">₹0.00</span>
+        </div>
+      </div>
+
+      <!-- Checkout Button -->
+      <button onclick="handleCheckoutOrder()" class="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-orange-600 to-amber-600 hover:from-orange-500 hover:to-amber-500 text-white font-semibold shadow-lg shadow-orange-600/30 flex items-center justify-center space-x-2 transition duration-200">
+        <i data-lucide="check-circle" class="w-5 h-5"></i>
+        <span>Confirm & Place Order</span>
+      </button>
+
+    </div>
+
+  </aside>
+
+  <!-- ================= LIVE ORDER TRACKER MODAL ================= -->
+  <div id="orderTrackerModal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-md p-4">
+    <div class="w-full max-w-xl bg-zinc-900 border border-zinc-800 rounded-3xl shadow-2xl overflow-hidden animate-scaleIn">
+      <div class="p-6 border-b border-zinc-800 flex items-center justify-between">
+        <div class="flex items-center space-x-3">
+          <div class="p-2.5 rounded-2xl bg-orange-500/10 text-orange-400">
+            <i data-lucide="activity" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <h3 class="font-display font-bold text-xl text-white">Live Order Status</h3>
+            <p class="text-xs text-zinc-400">Track your order progress in the kitchen</p>
+          </div>
+        </div>
+        <button onclick="closeOrderTrackerModal()" class="p-2 rounded-xl text-zinc-400 hover:text-white hover:bg-zinc-800 transition">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <div id="orderTrackerModalContent" class="p-6 max-h-[70vh] overflow-y-auto space-y-4">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= ADD DISH MODAL (STAFF) ================= -->
+  <div id="addDishModal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-md p-4">
+    <div class="w-full max-w-md bg-zinc-900 border border-zinc-800 rounded-3xl shadow-2xl overflow-hidden p-6 space-y-5 animate-scaleIn">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center space-x-2.5">
+          <div class="p-2 rounded-xl bg-orange-500/10 text-orange-400">
+            <i data-lucide="plus-circle" class="w-5 h-5"></i>
+          </div>
+          <h3 class="font-display font-bold text-lg text-white">Add New Dish</h3>
+        </div>
+        <button onclick="closeAddDishModal()" class="text-zinc-400 hover:text-white">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <form id="addDishForm" onsubmit="handleAddDishSubmit(event)" class="space-y-3 text-xs">
+        <div>
+          <label class="block font-semibold text-zinc-400 mb-1">Dish Name *</label>
+          <input type="text" id="newDishName" required placeholder="e.g. Crispy Falafel Wrap" class="w-full px-3 py-2 rounded-xl bg-zinc-950 border border-zinc-800 text-white focus:outline-none focus:border-orange-500" />
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block font-semibold text-zinc-400 mb-1">Category</label>
+            <select id="newDishCategory" class="w-full px-3 py-2 rounded-xl bg-zinc-950 border border-zinc-800 text-white focus:outline-none focus:border-orange-500">
+              <option value="Burgers">Burgers</option>
+              <option value="Pizza">Pizza</option>
+              <option value="Main Course">Main Course</option>
+              <option value="Fast Food">Fast Food</option>
+              <option value="Desserts">Desserts</option>
+              <option value="Beverages">Beverages</option>
+            </select>
+          </div>
+          <div>
+            <label class="block font-semibold text-zinc-400 mb-1">Price (₹) *</label>
+            <input type="number" id="newDishPrice" step="1" required placeholder="149" class="w-full px-3 py-2 rounded-xl bg-zinc-950 border border-zinc-800 text-white focus:outline-none focus:border-orange-500" />
+          </div>
+        </div>
+        <div class="grid grid-cols-3 gap-3">
+          <div>
+            <label class="block font-semibold text-zinc-400 mb-1">Prep Time (mins)</label>
+            <input type="number" id="newDishPrepTime" value="8" class="w-full px-3 py-2 rounded-xl bg-zinc-950 border border-zinc-800 text-white focus:outline-none focus:border-orange-500" />
+          </div>
+          <div>
+            <label class="block font-semibold text-zinc-400 mb-1">Stock Portions *</label>
+            <input type="number" id="newDishStock" value="25" required class="w-full px-3 py-2 rounded-xl bg-zinc-950 border border-zinc-800 text-white focus:outline-none focus:border-orange-500" />
+          </div>
+          <div>
+            <label class="block font-semibold text-zinc-400 mb-1">Type</label>
+            <select id="newDishIsVeg" class="w-full px-3 py-2 rounded-xl bg-zinc-950 border border-zinc-800 text-white focus:outline-none focus:border-orange-500">
+              <option value="1">🌱 Pure Veg</option>
+              <option value="0">🍗 Non-Veg</option>
+            </select>
+          </div>
+        </div>
+        <div>
+          <label class="block font-semibold text-zinc-400 mb-1">Food Image URL</label>
+          <input type="url" id="newDishImageUrl" placeholder="https://images.unsplash.com/..." class="w-full px-3 py-2 rounded-xl bg-zinc-950 border border-zinc-800 text-white focus:outline-none focus:border-orange-500" />
+        </div>
+        <div>
+          <label class="block font-semibold text-zinc-400 mb-1">Description</label>
+          <textarea id="newDishDesc" rows="2" placeholder="Brief delicious summary..." class="w-full px-3 py-2 rounded-xl bg-zinc-950 border border-zinc-800 text-white focus:outline-none focus:border-orange-500"></textarea>
+        </div>
+
+        <button type="submit" class="w-full py-2.5 rounded-xl bg-orange-600 hover:bg-orange-500 text-white font-semibold text-sm transition">
+          Save & Add to Menu
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ================= TOAST NOTIFICATION CONTAINER ================= -->
+  <div id="toastContainer" class="fixed bottom-6 right-6 z-50 flex flex-col space-y-2 pointer-events-none">
+    <!-- Toasts injected via app.js -->
+  </div>
+
+  <!-- JavaScript Modules -->
+  <script src="/js/app.js"></script>
+  <script src="/js/student-view.js"></script>
+  <script src="/js/staff-view.js"></script>
+</body>
+</html>

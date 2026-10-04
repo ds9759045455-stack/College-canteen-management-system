@@ -1,0 +1,155 @@
+/* ============================================================
+   HITAHARA CANTEEN - LUXURY MINIMALIST STYLES
+   ============================================================ */
+
+body {
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-6px); }
+  40%, 80% { transform: translateX(6px); }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-scaleIn {
+  animation: scaleIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-shake {
+  animation: shake 0.4s ease-in-out;
+}
+
+/* Category Pill Styling */
+.cat-pill {
+  border: 1px solid rgba(63, 63, 70, 0.4);
+  background: rgba(24, 24, 27, 0.8);
+  backdrop-filter: blur(8px);
+}
+
+.cat-pill:hover {
+  background: rgba(39, 39, 42, 0.9);
+  border-color: rgba(113, 113, 122, 0.6);
+}
+
+.cat-pill.active {
+  background: linear-gradient(135deg, #ea580c, #f97316);
+  color: #ffffff !important;
+  border-color: transparent;
+  box-shadow: 0 4px 14px rgba(234, 88, 12, 0.3);
+}
+
+/* Top Nav Tab Active */
+.view-tab-btn.active-tab {
+  background: #18181b;
+  color: #f97316;
+  border: 1px solid rgba(249, 115, 22, 0.25);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* Staff Sub Tabs */
+.staff-sub-tab.active {
+  background: rgba(249, 115, 22, 0.15);
+  color: #fb923c;
+  border: 1px solid rgba(249, 115, 22, 0.3);
+}
+
+/* Food Card Effects */
+.food-card {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.food-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(249, 115, 22, 0.35);
+  box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.8), 0 0 20px rgba(249, 115, 22, 0.1);
+}
+
+.food-card .food-img-wrapper img {
+  transition: transform 0.4s ease;
+}
+
+.food-card:hover .food-img-wrapper img {
+  transform: scale(1.05);
+}
+
+/* Numeric PIN Keypad Button */
+.pin-key {
+  height: 48px;
+  border-radius: 14px;
+  background: rgba(24, 24, 27, 0.9);
+  border: 1px solid rgba(63, 63, 70, 0.5);
+  color: #f4f4f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: inherit;
+  transition: all 0.15s ease;
+  user-select: none;
+}
+
+.pin-key:hover {
+  background: rgba(39, 39, 42, 1);
+  border-color: rgba(249, 115, 22, 0.4);
+  transform: translateY(-1px);
+}
+
+.pin-key:active {
+  transform: scale(0.95);
+  background: rgba(249, 115, 22, 0.2);
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #09090b;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3f3f46;
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Order Ticket Card */
+.order-card {
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.order-card:hover {
+  border-color: rgba(249, 115, 22, 0.4);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+}

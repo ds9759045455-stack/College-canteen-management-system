@@ -1,0 +1,265 @@
+{
+  "timestamp": "2026-10-04T08:30:37.125Z",
+  "next_order_id": 105,
+  "next_item_id": 11,
+  "menu": [
+    {
+      "id": 1,
+      "name": "Classic Paneer Tikka Burger",
+      "category": "Burgers",
+      "price": 149,
+      "description": "Char-grilled spiced paneer patty with mint mayo, crisp lettuce, and artisanal brioche bun.",
+      "image_url": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=80",
+      "prep_time_min": 8,
+      "stock_qty": 25,
+      "is_veg": true,
+      "is_available": true
+    },
+    {
+      "id": 2,
+      "name": "Smoked Crispy Chicken Burger",
+      "category": "Burgers",
+      "price": 189,
+      "description": "Double-fried buttermilk chicken breast with house special peri-peri sauce and melted cheddar.",
+      "image_url": "https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=800&q=80",
+      "prep_time_min": 10,
+      "stock_qty": 19,
+      "is_veg": false,
+      "is_available": true
+    },
+    {
+      "id": 3,
+      "name": "Stone-baked Margherita Pizza",
+      "category": "Pizza",
+      "price": 229,
+      "description": "San Marzano tomato coulis, fresh mozzarella bocconcini, extra virgin olive oil, and sweet basil.",
+      "image_url": "https://images.unsplash.com/photo-1604382355076-af4b0eb60143?auto=format&fit=crop&w=800&q=80",
+      "prep_time_min": 12,
+      "stock_qty": 15,
+      "is_veg": true,
+      "is_available": true
+    },
+    {
+      "id": 5,
+      "name": "Hyderabadi Dum Chicken Biryani",
+      "category": "Main Course",
+      "price": 219,
+      "description": "Slow-cooked fragrant basmati rice layered with marinated tender chicken, saffron, and fried onions.",
+      "image_url": "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=800&q=80",
+      "prep_time_min": 10,
+      "stock_qty": 30,
+      "is_veg": false,
+      "is_available": true
+    },
+    {
+      "id": 6,
+      "name": "Royal Shahi Paneer with Naan",
+      "category": "Main Course",
+      "price": 199,
+      "description": "Rich cashew-tomato gravy, cottage cheese cubes, topped with butter cream and 2 butter garlic naans.",
+      "image_url": "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?auto=format&fit=crop&w=800&q=80",
+      "prep_time_min": 9,
+      "stock_qty": 22,
+      "is_veg": true,
+      "is_available": true
+    },
+    {
+      "id": 7,
+      "name": "Chili Garlic Hakka Noodles",
+      "category": "Fast Food",
+      "price": 129,
+      "description": "Wok-tossed hand-pulled noodles with colorful bell peppers, scallions, and toasted garlic chili oil.",
+      "image_url": "https://images.unsplash.com/photo-1585032226651-759b368d7246?auto=format&fit=crop&w=800&q=80",
+      "prep_time_min": 7,
+      "stock_qty": 35,
+      "is_veg": true,
+      "is_available": true
+    },
+    {
+      "id": 8,
+      "name": "Crispy Peri-Peri French Fries",
+      "category": "Fast Food",
+      "price": 89,
+      "description": "Golden skin-on potato fries dusted with authentic African bird's eye chili spice mix and cheese dip.",
+      "image_url": "https://images.unsplash.com/photo-1576107232684-1279f3908594?auto=format&fit=crop&w=800&q=80",
+      "prep_time_min": 5,
+      "stock_qty": 50,
+      "is_veg": true,
+      "is_available": true
+    },
+    {
+      "id": 9,
+      "name": "Choco-Lava Cake with Ice Cream",
+      "category": "Desserts",
+      "price": 119,
+      "description": "Warm molten chocolate cake overflowing with Belgian ganache, paired with vanilla bean gelato.",
+      "image_url": "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=800&q=80",
+      "prep_time_min": 5,
+      "stock_qty": 20,
+      "is_veg": true,
+      "is_available": true
+    },
+    {
+      "id": 10,
+      "name": "Iced Caramel Macchiato",
+      "category": "Beverages",
+      "price": 99,
+      "description": "Freshly brewed double espresso over cold whole milk, vanilla essence, and sea salt caramel drizzle.",
+      "image_url": "https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?auto=format&fit=crop&w=800&q=80",
+      "prep_time_min": 4,
+      "stock_qty": 40,
+      "is_veg": true,
+      "is_available": true
+    }
+  ],
+  "orders": [
+    {
+      "order_id": 101,
+      "student_id": "STU-2024-012",
+      "student_name": "Alex Mercer",
+      "pickup_type": "Dine-In",
+      "special_notes": "Extra ketchup please",
+      "payment_method": "Campus Card",
+      "total_amount": 238,
+      "created_at": "2026-10-04 06:29:34",
+      "status": "PREPARING",
+      "queue_position": 1,
+      "items": [
+        {
+          "item_id": 1,
+          "name": "Classic Paneer Tikka Burger",
+          "unit_price": 149,
+          "quantity": 1
+        },
+        {
+          "item_id": 8,
+          "name": "Crispy Peri-Peri French Fries",
+          "unit_price": 89,
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "order_id": 102,
+      "student_id": "STU-2024-089",
+      "student_name": "Sophia Chen",
+      "pickup_type": "Takeaway",
+      "special_notes": "Less spicy please",
+      "payment_method": "UPI / QR",
+      "total_amount": 318,
+      "created_at": "2026-10-04 06:29:34",
+      "status": "PENDING",
+      "queue_position": 2,
+      "items": [
+        {
+          "item_id": 5,
+          "name": "Hyderabadi Dum Chicken Biryani",
+          "unit_price": 219,
+          "quantity": 1
+        },
+        {
+          "item_id": 10,
+          "name": "Iced Caramel Macchiato",
+          "unit_price": 99,
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "order_id": 103,
+      "student_id": "STU-2024-999",
+      "student_name": "Maya Patel",
+      "pickup_type": "Dine-In",
+      "special_notes": "Extra crispy",
+      "payment_method": "Campus Card",
+      "total_amount": 134.1,
+      "created_at": "2026-10-04 06:31:09",
+      "status": "PENDING",
+      "queue_position": 3,
+      "items": [
+        {
+          "unit_price": 149,
+          "quantity": 1,
+          "item_id": 1,
+          "name": "Classic Paneer Tikka Burger"
+        }
+      ]
+    },
+    {
+      "order_id": 104,
+      "student_id": "STU-2024-042",
+      "student_name": "Jordan Hayes",
+      "pickup_type": "Dine-In",
+      "special_notes": "Standard order",
+      "payment_method": "Campus Card",
+      "total_amount": 170.1,
+      "created_at": "2026-10-04 06:36:55",
+      "status": "PENDING",
+      "queue_position": 4,
+      "items": [
+        {
+          "item_id": 2,
+          "name": "Smoked Crispy Chicken Burger",
+          "unit_price": 189,
+          "quantity": 1
+        }
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "action_id": 1006,
+      "type": 3,
+      "target_id": 4,
+      "prev_state_val": 0,
+      "new_state_val": 0,
+      "details": "Unlinked dish \"Fiery Pepperoni & Jalapeno Pizza\" (#Node 4) from linked list",
+      "timestamp": "2026-10-04 08:30:37"
+    },
+    {
+      "action_id": 1005,
+      "type": 5,
+      "target_id": 104,
+      "prev_state_val": 0,
+      "new_state_val": 0,
+      "details": "Order #104 placed by Jordan Hayes (₹170.10)",
+      "timestamp": "2026-10-04 08:23:11"
+    },
+    {
+      "action_id": 1004,
+      "type": 5,
+      "target_id": 103,
+      "prev_state_val": 0,
+      "new_state_val": 0,
+      "details": "Order #103 placed by Maya Patel (₹134.10)",
+      "timestamp": "2026-10-04 08:23:11"
+    },
+    {
+      "action_id": 1003,
+      "type": 5,
+      "target_id": 102,
+      "prev_state_val": 0,
+      "new_state_val": 0,
+      "details": "Order #102 placed by Sophia Chen",
+      "timestamp": "2026-10-04 08:23:11"
+    },
+    {
+      "action_id": 1002,
+      "type": 1,
+      "target_id": 101,
+      "prev_state_val": 0,
+      "new_state_val": 1,
+      "details": "Order #101 cooking in kitchen",
+      "timestamp": "2026-10-04 08:23:11"
+    },
+    {
+      "action_id": 1001,
+      "type": 4,
+      "target_id": 1,
+      "prev_state_val": 24,
+      "new_state_val": 25,
+      "details": "Adjusted stock for Classic Paneer Tikka Burger by +1",
+      "timestamp": "2026-10-04 08:23:11"
+    }
+  ]
+}
