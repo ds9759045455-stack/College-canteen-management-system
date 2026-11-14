@@ -1,0 +1,14 @@
+{
+  "name": "canteen-management-system",
+  "version": "1.0.0",
+  "description": "Canteen Management System powered by C Data Structures (Stack, FIFO Queue, Linked List) with Premium Modern UI",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test:c": "zig cc ../core/test_core.c ../core/canteen_core.c -o test_core.exe && ./test_core.exe"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "cors": "^2.8.5"
+  }
+}

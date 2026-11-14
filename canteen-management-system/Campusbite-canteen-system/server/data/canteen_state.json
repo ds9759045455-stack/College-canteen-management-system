@@ -1,0 +1,567 @@
+{
+  "timestamp": "2026-11-14T04:16:27.886Z",
+  "next_order_id": 105,
+  "next_item_id": 19,
+  "menu": [
+    {
+      "id": 1,
+      "name": "Crispy Chole Poori",
+      "category": "Breakfast",
+      "price": 89,
+      "description": "Fluffy golden pooris served with spiced Amritsari chickpea curry, tangy pickled onions, and green chili.",
+      "image_url": "https://images.unsplash.com/photo-1626132647523-66f5bf380027?auto=format&fit=crop&w=800&q=80",
+      "prep_time_min": 8,
+      "stock_qty": 30,
+      "is_veg": true,
+      "is_available": true,
+      "raw_materials": "Whole Wheat Flour (150g), Chickpeas (100g), Cooking Oil (40ml), Spices & Herbs (20g)"
+    },
+    {
+      "id": 2,
+      "name": "Khasta Moong Dal Kachori",
+      "category": "Breakfast",
+      "price": 69,
+      "description": "Crusty flaky kachori stuffed with roasted spiced yellow lentils, served with sweet sonth and mint chutney.",
+      "image_url": "https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=800&q=80",
+      "prep_time_min": 6,
+      "stock_qty": 25,
+      "is_veg": true,
+      "is_available": true,
+      "raw_materials": "Refined Flour (120g), Yellow Moong Dal (60g), Desi Ghee (25g), Asafoetida & Spices (15g)"
+    },
+    {
+      "id": 3,
+      "name": "Royal Veg Dum Biryani",
+      "category": "Main Course",
+      "price": 189,
+      "description": "Aromatic basmati rice slow-cooked with cottage cheese, fresh seasonal vegetables, saffron, and crisp fried onions.",
+      "image_url": "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=800&q=80",
+      "prep_time_min": 12,
+      "stock_qty": 27,
+      "is_veg": true,
+      "is_available": true,
+      "raw_materials": "Basmati Rice (180g), Fresh Paneer (80g), Mixed Veggies (100g), Desi Ghee (30g), Saffron (1g)"
+    },
+    {
+      "id": 4,
+      "name": "Dark Chocolate Truffle Cake",
+      "category": "Desserts",
+      "price": 119,
+      "description": "Eggless rich chocolate sponge layered with smooth Belgian dark chocolate ganache and chocolate curls.",
+      "image_url": "https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=80",
+      "prep_time_min": 4,
+      "stock_qty": 20,
+      "is_veg": true,
+      "is_available": true,
+      "raw_materials": "Cocoa Powder & Flour (140g), Dark Chocolate (80g), Dairy Cream (60ml), Raw Sugar (40g)"
+    },
+    {
+      "id": 5,
+      "name": "Amritsari Aloo Paratha",
+      "category": "Breakfast",
+      "price": 79,
+      "description": "Homestyle tawa paratha stuffed with mashed spiced potatoes, roasted cumin, fresh coriander, butter and curd.",
+      "image_url": "https://images.unsplash.com/photo-1626074353765-517a681e40be?auto=format&fit=crop&w=800&q=80",
+      "prep_time_min": 7,
+      "stock_qty": 35,
+      "is_veg": true,
+      "is_available": true,
+      "raw_materials": "Whole Wheat Flour (140g), Potatoes (120g), Amul Butter (20g), Fresh Curd (80g), Spices (10g)"
+    },
+    {
+      "id": 6,
+      "name": "Indori Masala Poha",
+      "category": "Breakfast",
+      "price": 49,
+      "description": "Steamed flattened rice tempered with mustard, turmeric, green chillies, crunchy roasted peanuts, and Ratlami sev.",
+      "image_url": "https://images.unsplash.com/photo-1668236543090-82eba5ee5976?auto=format&fit=crop&w=800&q=80",
+      "prep_time_min": 5,
+      "stock_qty": 40,
+      "is_veg": true,
+      "is_available": true,
+      "raw_materials": "Flattened Rice / Poha (120g), Roasted Peanuts (30g), Mustard & Curry Leaves (10g), Sev (20g)"
+    },
+    {
+      "id": 7,
+      "name": "Gujarati Nylon Dhokla",
+      "category": "Snacks",
+      "price": 59,
+      "description": "Soft and spongy steamed gram flour cakes tempered with mustard seeds, sesame, and slit green chillies.",
+      "image_url": "https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&w=800&q=80",
+      "prep_time_min": 5,
+      "stock_qty": 30,
+      "is_veg": true,
+      "is_available": true,
+      "raw_materials": "Bengal Gram Besan (150g), Lemon Juice & Curd (40g), Mustard & Sesame (10g), Green Chillies (5g)"
+    },
+    {
+      "id": 8,
+      "name": "Crispy Mix Veg Pakoda",
+      "category": "Snacks",
+      "price": 69,
+      "description": "Golden fritters of onion, potatoes, spinach, and cauliflower coated in seasoned chickpea batter.",
+      "image_url": "https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=800&q=80",
+      "prep_time_min": 6,
+      "stock_qty": 40,
+      "is_veg": true,
+      "is_available": true,
+      "raw_materials": "Chickpea Besan (120g), Farm Potatoes & Onions (140g), Cooking Oil (50ml), Carom Seeds (5g)"
+    },
+    {
+      "id": 9,
+      "name": "Thick Kesar Mango Shake",
+      "category": "Beverages",
+      "price": 99,
+      "description": "Creamy luscious shake blended from real Alphonso mango pulp, full cream milk, and topped with dry fruit slivers.",
+      "image_url": "https://images.unsplash.com/photo-1546173159-315724a31696?auto=format&fit=crop&w=800&q=80",
+      "prep_time_min": 4,
+      "stock_qty": 35,
+      "is_veg": true,
+      "is_available": true,
+      "raw_materials": "Alphonso Mango Pulp (150ml), Chilled Dairy Milk (200ml), Vanilla Scoop (40g), Pistachios (5g)"
+    },
+    {
+      "id": 10,
+      "name": "Golden Honey Pancakes",
+      "category": "Breakfast",
+      "price": 119,
+      "description": "Stack of three fluffy eggless buttermilk pancakes served warm with natural organic honey and melted butter.",
+      "image_url": "https://images.unsplash.com/photo-1528207776546-365bb710ee93?auto=format&fit=crop&w=800&q=80",
+      "prep_time_min": 7,
+      "stock_qty": 20,
+      "is_veg": true,
+      "is_available": true,
+      "raw_materials": "Refined Flour (130g), Fresh Milk (110ml), Organic Wild Honey (35ml), Salted Butter (15g)"
+    },
+    {
+      "id": 11,
+      "name": "Comforting Desi Ghee Khichdi",
+      "category": "Main Course",
+      "price": 129,
+      "description": "Wholesome slow-cooked yellow lentils and fragrant rice tempered with cumin, garlic, and pure desi cow ghee.",
+      "image_url": "https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=800&q=80",
+      "prep_time_min": 8,
+      "stock_qty": 25,
+      "is_veg": true,
+      "is_available": true,
+      "raw_materials": "Rice (100g), Yellow Moong Dal (100g), Desi Cow Ghee (30g), Cumin & Hing (8g), Mixed Vegetables (60g)"
+    },
+    {
+      "id": 12,
+      "name": "Classic Paneer Tikka Burger",
+      "category": "Fast Food",
+      "price": 139,
+      "description": "Tandoori spiced grilled paneer slab with roasted bell pepper, tangy mint mayo, and crisp lettuce in brioche bun.",
+      "image_url": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=80",
+      "prep_time_min": 8,
+      "stock_qty": 22,
+      "is_veg": true,
+      "is_available": true,
+      "raw_materials": "Cottage Cheese Paneer (100g), Brioche Bun (1 pc), Mint Mayo (25g), Lettuce & Onions (30g)"
+    },
+    {
+      "id": 13,
+      "name": "Stone-baked Margherita Pizza",
+      "category": "Fast Food",
+      "price": 199,
+      "description": "Hand-stretched sourdough pizza with Italian plum tomato sauce, mozzarella bocconcini, and fresh basil.",
+      "image_url": "https://images.unsplash.com/photo-1604382355076-af4b0eb60143?auto=format&fit=crop&w=800&q=80",
+      "prep_time_min": 11,
+      "stock_qty": 18,
+      "is_veg": true,
+      "is_available": true,
+      "raw_materials": "Sourdough Pizza Base (180g), Fresh Mozzarella (100g), San Marzano Tomato (60g), Basil Leaves (5g)"
+    },
+    {
+      "id": 14,
+      "name": "Crispy Samosa with Chole",
+      "category": "Snacks",
+      "price": 59,
+      "description": "Two crisp golden pyramid pastries stuffed with spiced potatoes and peas, drenched with spicy chole gravy.",
+      "image_url": "https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=800&q=80",
+      "prep_time_min": 5,
+      "stock_qty": 40,
+      "is_veg": true,
+      "is_available": true,
+      "raw_materials": "Maida Flour (120g), Potatoes & Green Peas (130g), Chickpeas Curry (100g), Spices (15g)"
+    },
+    {
+      "id": 15,
+      "name": "Shahi Paneer Butter Masala",
+      "category": "Main Course",
+      "price": 179,
+      "description": "Silky tomato, cashew, and butter gravy with fresh paneer cubes, served with two hot butter garlic naans.",
+      "image_url": "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?auto=format&fit=crop&w=800&q=80",
+      "prep_time_min": 10,
+      "stock_qty": 24,
+      "is_veg": true,
+      "is_available": true,
+      "raw_materials": "Fresh Paneer (140g), Cashew & Tomato Gravy (180g), Butter (25g), Tandoori Naan (2 pcs)"
+    },
+    {
+      "id": 16,
+      "name": "Crispy Masala Dosa",
+      "category": "Breakfast",
+      "price": 99,
+      "description": "Golden paper-thin fermented rice crepe stuffed with fragrant mustard-potato masala, served with coconut chutney & sambar.",
+      "image_url": "https://images.unsplash.com/photo-1668236543090-82eba5ee5976?auto=format&fit=crop&w=800&q=80",
+      "prep_time_min": 7,
+      "stock_qty": 30,
+      "is_veg": true,
+      "is_available": true,
+      "raw_materials": "Fermented Rice & Urad Batter (180g), Potato Masala (110g), Coconut Chutney (50g), Sambar (120ml)"
+    },
+    {
+      "id": 17,
+      "name": "Chilli Garlic Hakka Noodles",
+      "category": "Fast Food",
+      "price": 119,
+      "description": "Wok-tossed hand-pulled noodles with colorful bell peppers, shredded cabbage, scallions, and toasted garlic oil.",
+      "image_url": "https://images.unsplash.com/photo-1585032226651-759b368d7246?auto=format&fit=crop&w=800&q=80",
+      "prep_time_min": 7,
+      "stock_qty": 32,
+      "is_veg": true,
+      "is_available": true,
+      "raw_materials": "Wheat Noodles (150g), Bell Peppers & Cabbage (100g), Garlic Chili Oil (25ml), Soy Sauce (15ml)"
+    },
+    {
+      "id": 18,
+      "name": "Warm Desi Ghee Gulab Jamun",
+      "category": "Desserts",
+      "price": 69,
+      "description": "Two melt-in-mouth reduced milk khoya dumplings, deep-fried in desi ghee and steeped in cardamom rose syrup.",
+      "image_url": "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=800&q=80",
+      "prep_time_min": 4,
+      "stock_qty": 30,
+      "is_veg": true,
+      "is_available": true,
+      "raw_materials": "Fresh Khoya / Mawa (100g), Refined Flour (20g), Sugar Syrup (80ml), Cardamom & Rose (5g)"
+    }
+  ],
+  "orders": [
+    {
+      "order_id": 101,
+      "student_id": "STU-2024-012",
+      "student_name": "Aarav Sharma",
+      "pickup_type": "Dine-In",
+      "special_notes": "Extra chutney please",
+      "payment_method": "Campus Card",
+      "total_amount": 168,
+      "penalty_deduction": 0,
+      "refund_amount": 0,
+      "cancel_reason": "",
+      "created_at": "2026-11-14 04:14:43",
+      "status": "PREPARING",
+      "queue_position": 1,
+      "items": [
+        {
+          "item_id": 1,
+          "name": "Crispy Chole Poori",
+          "unit_price": 89,
+          "quantity": 1
+        },
+        {
+          "item_id": 5,
+          "name": "Amritsari Aloo Paratha",
+          "unit_price": 79,
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "order_id": 102,
+      "student_id": "STU-2024-089",
+      "student_name": "Priya Verma",
+      "pickup_type": "Takeaway",
+      "special_notes": "Less spicy please",
+      "payment_method": "UPI / QR",
+      "total_amount": 238,
+      "penalty_deduction": 0,
+      "refund_amount": 0,
+      "cancel_reason": "",
+      "created_at": "2026-11-14 04:14:43",
+      "status": "PENDING",
+      "queue_position": 2,
+      "items": [
+        {
+          "item_id": 3,
+          "name": "Royal Veg Dum Biryani",
+          "unit_price": 189,
+          "quantity": 1
+        },
+        {
+          "item_id": 6,
+          "name": "Indori Masala Poha",
+          "unit_price": 49,
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "order_id": 103,
+      "student_id": "STU-TEST-1",
+      "student_name": "Yash",
+      "pickup_type": "Dine-In",
+      "special_notes": "Fresh",
+      "payment_method": "Campus Card",
+      "total_amount": 178,
+      "penalty_deduction": 0,
+      "refund_amount": 178,
+      "cancel_reason": "Cancelled by student before cooking started (100% refund)",
+      "created_at": "2026-11-14 04:15:34",
+      "status": "CANCELLED",
+      "queue_position": 3,
+      "items": [
+        {
+          "unit_price": 89,
+          "quantity": 2,
+          "item_id": 1,
+          "name": "Crispy Chole Poori"
+        }
+      ]
+    },
+    {
+      "order_id": 104,
+      "student_id": "STU-TEST-2",
+      "student_name": "Diksha",
+      "pickup_type": "Takeaway",
+      "special_notes": "Spicy",
+      "payment_method": "UPI",
+      "total_amount": 189,
+      "penalty_deduction": 66.15,
+      "refund_amount": 122.85,
+      "cancel_reason": "Cancelled after cooking commenced (35% management fee applied)",
+      "created_at": "2026-11-14 04:16:03",
+      "status": "CANCELLED",
+      "queue_position": 3,
+      "items": [
+        {
+          "unit_price": 189,
+          "quantity": 1,
+          "item_id": 3,
+          "name": "Royal Veg Dum Biryani"
+        }
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "action_id": 1007,
+      "type": 6,
+      "target_id": 104,
+      "prev_state_val": 1,
+      "new_state_val": 4,
+      "details": "Order #104 cancelled after cooking started. 35% management charge (₹66.15) deducted. Refund of ₹122.85 (65%) processed.",
+      "timestamp": "2026-11-14 04:16:03"
+    },
+    {
+      "action_id": 1006,
+      "type": 1,
+      "target_id": 104,
+      "prev_state_val": "PENDING",
+      "new_state_val": "PREPARING",
+      "details": "Order #104 advanced from PENDING to PREPARING",
+      "timestamp": "2026-11-14 04:16:03"
+    },
+    {
+      "action_id": 1005,
+      "type": 5,
+      "target_id": 104,
+      "prev_state_val": 0,
+      "new_state_val": 0,
+      "details": "Order #104 placed by Diksha (₹189.00)",
+      "timestamp": "2026-11-14 04:16:03"
+    },
+    {
+      "action_id": 1004,
+      "type": 6,
+      "target_id": 103,
+      "prev_state_val": 0,
+      "new_state_val": 4,
+      "details": "Order #103 cancelled before cooking. Full 100% refund of ₹178.00 processed with 0% penalty.",
+      "timestamp": "2026-11-14 04:15:34"
+    },
+    {
+      "action_id": 1003,
+      "type": 5,
+      "target_id": 103,
+      "prev_state_val": 0,
+      "new_state_val": 0,
+      "details": "Order #103 placed by Yash (₹178.00)",
+      "timestamp": "2026-11-14 04:15:34"
+    },
+    {
+      "action_id": 1002,
+      "type": 5,
+      "target_id": 102,
+      "prev_state_val": 0,
+      "new_state_val": 0,
+      "details": "Order #102 placed by Priya Verma",
+      "timestamp": "2026-11-14 04:14:43"
+    },
+    {
+      "action_id": 1001,
+      "type": 1,
+      "target_id": 101,
+      "prev_state_val": 0,
+      "new_state_val": 1,
+      "details": "Order #101 cooking in kitchen",
+      "timestamp": "2026-11-14 04:14:43"
+    }
+  ],
+  "raw_materials": [
+    {
+      "id": 1,
+      "name": "Whole Wheat Flour (Sharbati Atta)",
+      "category": "Grains & Flour",
+      "current_stock": 55,
+      "unit": "kg",
+      "min_threshold": 15,
+      "linked_dishes": "Crispy Chole Poori, Amritsari Aloo Paratha"
+    },
+    {
+      "id": 2,
+      "name": "Fresh Malai Paneer",
+      "category": "Dairy",
+      "current_stock": 18.5,
+      "unit": "kg",
+      "min_threshold": 8,
+      "linked_dishes": "Royal Veg Dum Biryani, Shahi Paneer Butter Masala, Paneer Tikka Burger"
+    },
+    {
+      "id": 3,
+      "name": "Saffron Basmati Rice",
+      "category": "Grains & Flour",
+      "current_stock": 55,
+      "unit": "kg",
+      "min_threshold": 20,
+      "linked_dishes": "Royal Veg Dum Biryani, Desi Ghee Khichdi"
+    },
+    {
+      "id": 4,
+      "name": "Farm Fresh Potatoes (Aloo)",
+      "category": "Produce",
+      "current_stock": 60,
+      "unit": "kg",
+      "min_threshold": 15,
+      "linked_dishes": "Amritsari Aloo Paratha, Crispy Mix Veg Pakoda, Samosa, Masala Dosa"
+    },
+    {
+      "id": 5,
+      "name": "Bengal Gram Besan",
+      "category": "Grains & Flour",
+      "current_stock": 28,
+      "unit": "kg",
+      "min_threshold": 10,
+      "linked_dishes": "Gujarati Nylon Dhokla, Crispy Mix Veg Pakoda"
+    },
+    {
+      "id": 6,
+      "name": "Pure Desi Cow Ghee",
+      "category": "Oils & Ghee",
+      "current_stock": 22,
+      "unit": "kg",
+      "min_threshold": 5,
+      "linked_dishes": "Khasta Moong Dal Kachori, Royal Veg Dum Biryani, Desi Ghee Khichdi, Gulab Jamun"
+    },
+    {
+      "id": 7,
+      "name": "Cold-Pressed Cooking Oil",
+      "category": "Oils & Ghee",
+      "current_stock": 40,
+      "unit": "L",
+      "min_threshold": 12,
+      "linked_dishes": "Crispy Chole Poori, Crispy Pakoda, Hakka Noodles"
+    },
+    {
+      "id": 8,
+      "name": "Full Cream Dairy Milk",
+      "category": "Dairy",
+      "current_stock": 35,
+      "unit": "L",
+      "min_threshold": 10,
+      "linked_dishes": "Thick Kesar Mango Shake, Golden Honey Pancakes, Tea & Coffee"
+    },
+    {
+      "id": 9,
+      "name": "Fresh Curd / Dahi",
+      "category": "Dairy",
+      "current_stock": 16,
+      "unit": "kg",
+      "min_threshold": 5,
+      "linked_dishes": "Amritsari Aloo Paratha, Gujarati Nylon Dhokla"
+    },
+    {
+      "id": 10,
+      "name": "Kabuli Chole & Moong Dal",
+      "category": "Pulses",
+      "current_stock": 32,
+      "unit": "kg",
+      "min_threshold": 10,
+      "linked_dishes": "Crispy Chole Poori, Khasta Moong Dal Kachori, Desi Ghee Khichdi"
+    },
+    {
+      "id": 11,
+      "name": "Sourdough Pizza Flour & Yeast",
+      "category": "Bakery",
+      "current_stock": 20,
+      "unit": "kg",
+      "min_threshold": 6,
+      "linked_dishes": "Stone-baked Margherita Pizza"
+    },
+    {
+      "id": 12,
+      "name": "Fresh Mozzarella Cheese",
+      "category": "Dairy",
+      "current_stock": 12,
+      "unit": "kg",
+      "min_threshold": 4,
+      "linked_dishes": "Stone-baked Margherita Pizza"
+    },
+    {
+      "id": 13,
+      "name": "Amul Salted Table Butter",
+      "category": "Dairy",
+      "current_stock": 15,
+      "unit": "kg",
+      "min_threshold": 5,
+      "linked_dishes": "Aloo Paratha, Shahi Paneer Butter Masala, Pancakes"
+    },
+    {
+      "id": 14,
+      "name": "Organic Honey & Raw Sugar",
+      "category": "Pantry",
+      "current_stock": 25,
+      "unit": "kg",
+      "min_threshold": 8,
+      "linked_dishes": "Golden Honey Pancakes, Dark Chocolate Truffle Cake, Gulab Jamun"
+    },
+    {
+      "id": 15,
+      "name": "Flattened Rice (Poha) & Peanuts",
+      "category": "Grains & Flour",
+      "current_stock": 30,
+      "unit": "kg",
+      "min_threshold": 8,
+      "linked_dishes": "Indori Masala Poha"
+    },
+    {
+      "id": 16,
+      "name": "Fresh Khoya / Mawa",
+      "category": "Dairy",
+      "current_stock": 10,
+      "unit": "kg",
+      "min_threshold": 3,
+      "linked_dishes": "Warm Desi Ghee Gulab Jamun"
+    },
+    {
+      "id": 17,
+      "name": "Aromatic Garam Masala & Saffron",
+      "category": "Pantry",
+      "current_stock": 8,
+      "unit": "kg",
+      "min_threshold": 2,
+      "linked_dishes": "Biryani, Shahi Paneer, Chole, Kachori"
+    }
+  ]
+}
